@@ -1,0 +1,39 @@
+[
+  {
+    "id": "OSM.DE",
+    "url": "https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png",
+    "attribution":
+      "&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>",
+    "name": "OSM.DE",
+    "info": "http://openstreetmap.org",
+    "type": "tile"
+  },
+  {
+    "id": "ESRI",
+    "url":
+      "http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    "attribution":
+      "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+    "name": "WorldImagery ESRI",
+    "info": "WorldImagery ESRI ArcGIS Online WMS",
+    "type": "tile"
+  },
+  {
+    "id": "Imperium",
+    "url": "http://pelagios.org/tilesets/imperium/{z}/{x}/{y}.png",
+    "attribution":
+      "<a href='http://dare.ht.lu.se/'>Digital Atlas of the Roman Empire (DARE)</a>",
+    "name": "Imperium",
+    "info": "http://dare.ht.lu.se/",
+    "type": "tile"
+  },
+  {
+    "id": "Cassini",
+    "url": "http://geobretagne.fr/geoserver/geobretagne/wms?",
+    "layers": "cassini",
+    "format": "image/jpeg",
+    "type": "wms",
+    "name": "Cassini map",
+    "info": "Historical cassini map of France"
+  }
+]

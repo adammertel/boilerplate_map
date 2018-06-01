@@ -36,7 +36,7 @@ export default class AppMap extends React.Component {
   }
 
   componentDidMount() {
-    window['map'] = this.refs.map.leafletElement;
+    store.loadMap(this.refs.map.leafletElement);
   }
 
   render() {

@@ -37,59 +37,6 @@ export default class AppMap extends React.Component {
 
   componentDidMount() {
     window['map'] = this.refs.map.leafletElement;
-    const measureCircleStyle = {
-      fillColor: 'black',
-      weight: 0,
-      fillOpacity: 1,
-      radius: 3
-    };
-    window['measureControl'] = L.control
-      .polylineMeasure({
-        measureControlTitleOn: 'Measure',
-        measureControlTitleOff: 'Stop measuring',
-        clearControlTitle: 'Clear Measurements',
-        clearControlLabel: '&times',
-        measureControlLabel: '&#128207;',
-        tempLine: {
-          color: 'black', // Dashed line color
-          weight: 2 // Dashed line weight
-        },
-        fixedLine: {
-          color: 'black', // Solid line color
-          weight: 2 // Solid line weight
-        },
-        startCircle: measureCircleStyle,
-        intermedCircle: measureCircleStyle,
-        currentCircle: measureCircleStyle,
-        endCircle: measureCircleStyle
-      })
-      .addTo(map);
-  }
-
-  isMeasuring() {
-    return window['measureControl']._measuring;
-  }
-
-  renderBaseLayer(top) {
-    const basemap = top ? store.baseLayerTop : store.baseLayerBottom;
-    const opacity = top ? 1 - store.baseLayerOpacity : store.baseLayerOpacity;
-
-    if (basemap.type === 'tile') {
-      return <TileLayer key={top ? '1' : '2'} opacity={opacity} {...basemap} />;
-    } else if (basemap.type === 'wms') {
-      return (
-        <WMSTileLayer key={top ? '1' : '2'} opacity={opacity} {...basemap} />
-      );
-    }
-  }
-
-  renderBaseLayers() {
-    return (
-      <LayerGroup>
-        {this.renderBaseLayer(false)}
-        {this.renderBaseLayer(true)}
-      </LayerGroup>
-    );
   }
 
   render() {
@@ -106,7 +53,12 @@ export default class AppMap extends React.Component {
           <ScaleControl position="topleft" imperial={false} />
           <AttributionControl position="bottomleft" />
 
-          {this.renderBaseLayers()}
+          <LayerGroup>
+            <TileLayer
+              url="http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png"
+              attribution="&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>"
+            />
+          </LayerGroup>
         </Map>
       </div>
     );

@@ -16,7 +16,6 @@
     "build": "yarn run clean-build && parcel build app/index.html --out-dir build --no-cache --public-url ./",
     "deploy": "rsync -avz build/ hde@hde.geogr.muni.cz:/var/www/virthtml/hde/cisterciansfrance --delete",
     "build-deploy": "npm run build && npm run deploy"
-
   },
   "repository": {
     "type": "git",
@@ -28,4 +27,15 @@
     "react-leaflet",
     "mobx"
   ],
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "leaflet": "^1.4.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-leaflet": "^2.2.1",
+    "sass": "^1.19.0",
+    "typescript": "^3.4.5"
+  }
 }

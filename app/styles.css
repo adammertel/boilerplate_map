@@ -1,0 +1,14 @@
+/* importing tailwind */
+@tailwind preflight;
+@tailwind components;
+
+.test {
+  @apply px-2;
+  test1 {
+    @apply px-4;
+    @apply text-muni;
+  }
+}
+
+/* importing tailwind services */
+@tailwind utilities;

@@ -11,9 +11,9 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "clean-build": "rm -f -r -d build",
-    "start": "parcel app/index.html --open --out-dir build",
-    "build": "yarn run clean-build && parcel build app/index.html --out-dir build --no-cache --public-url ./",
+    "clean-dist": "rm -f -r -d dist",
+    "start": "parcel app/index.html --open",
+    "build": "npm run clean-dist && parcel build app/index.html --no-cache --public-url ./",
     "deploy": "rsync -avz build/ <user@url:/path> --delete",
     "build-deploy": "npm run build && npm run deploy",
     "build-tailwind": "./node_modules/.bin/tailwind build ./app/styles.css -c ./tailwind.js -o ./build/styles.css"
@@ -43,5 +43,8 @@
     "sass": "^1.19.0",
     "tailwindcss": "^0.7.4",
     "typescript": "^3.4.5"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10"
   }
 }

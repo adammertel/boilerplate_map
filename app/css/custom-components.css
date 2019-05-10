@@ -1,0 +1,16 @@
+.test1 {
+  background-color: config("colors.muni");
+}
+.test2 {
+  @apply bg-cyan;
+}
+.test3 {
+  @apply bg-red;
+}
+
+.wrapper {
+  background-color: config("colors.yellow");
+  .test4 {
+    @apply bg-green;
+  }
+}

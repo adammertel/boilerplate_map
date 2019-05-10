@@ -1,0 +1,16 @@
+{
+  "extends": "./node_modules/gts/tsconfig-google.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist",
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+
+    "baseUrl": "./app",
+    "paths": {
+      "*": ["./app/*"]
+    }
+  },
+  "include": ["app/*.ts", "app/**/*.ts", "test/*.ts", "test/**/*.ts"]
+}

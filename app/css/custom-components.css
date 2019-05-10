@@ -1,16 +1,11 @@
-.test1 {
-  background-color: config("colors.muni");
-}
-.test2 {
-  @apply bg-cyan;
-}
-.test3 {
-  @apply bg-red;
-}
-
-.wrapper {
+.app-wrapper {
   background-color: config("colors.yellow");
-  .test4 {
-    @apply bg-green;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  .muni-button {
+    @apply bg-muni;
   }
 }

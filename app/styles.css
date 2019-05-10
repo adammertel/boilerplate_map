@@ -1,7 +1,7 @@
-@import "./lib/preflight.css";
+@import "./css/tailwind/preflight.css";
 @import "./css/custom-preflight.css";
 
-@import "./lib/components.css";
+@import "./css/tailwind/components.css";
 @import "./css/custom-components.css";
 
-@import "./lib/utilities.css";
+@import "./css/tailwind/utilities.css";

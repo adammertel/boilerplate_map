@@ -1,11 +1,24 @@
 .app-wrapper {
-  background-color: config("colors.yellow");
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  @apply absolute;
+  @apply pin-b;
+  @apply pin-t;
+  @apply pin-r;
+  @apply pin-l;
+  .panel {
+    @apply absolute;
+  }
   .muni-button {
     @apply bg-muni;
+  }
+  .map {
+    @apply absolute;
+    @apply pin-b;
+    @apply pin-t;
+    @apply pin-r;
+    @apply pin-l;
+    .leaflet-container {
+      @apply w-full;
+      @apply h-full;
+    }
   }
 }

@@ -6,11 +6,13 @@
     "noImplicitAny": false,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
+    "jsx": "preserve",
 
     "baseUrl": "./app",
     "paths": {
       "*": ["./app/*"]
     }
   },
-  "include": ["app/*.ts", "app/**/*.ts", "test/*.ts", "test/**/*.ts"]
+  "include": ["app/*.*", "app/**/*.*", "test/*.ts", "test/**/*.ts"],
+  "exclude": [".git", "node_modules"]
 }

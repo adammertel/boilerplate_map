@@ -1,3 +1,5 @@
+@import "./../node_modules/leaflet/dist/leaflet.css";
+
 @import "./css/tailwind/preflight.css";
 @import "./css/custom-preflight.css";
 

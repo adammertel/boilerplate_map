@@ -12,7 +12,7 @@
   "scripts": {
     "test": "test",
     "clean-dist": "rm -f -r -d dist",
-    "start": "parcel app/index.html --open",
+    "start": "parcel app/index.html --open --no-cache",
     "build": "npm run clean-dist && parcel build app/index.html --no-cache --public-url ./",
     "deploy": "rsync -avz build/ <user@url:/path> --delete",
     "build-deploy": "npm run build && npm run deploy",
@@ -33,7 +33,7 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "components": "^0.1.0",
-    "leaflet": "^1.4.0",
+    "leaflet": "^1.5.1",
     "postcss-custom-properties": "^8.0.10",
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.1.2",

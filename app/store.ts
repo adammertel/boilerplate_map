@@ -8,7 +8,6 @@ export default class AppStore {
   constructor() {
     this._center = observable.box([48.93, 18.15]);
     this._zoom = observable.box(6);
-
     this._extent = observable.box([]);
   }
 
@@ -33,10 +32,8 @@ export default class AppStore {
     newZoom: Number,
     newExtent: Array<Number>
   ): void {
-    console.log("map moved", newZoom);
     this._center.set(newCenter);
     this._zoom.set(newZoom);
     this._extent.set(newExtent);
-    //window["stores"].selection.updateSpace(newExtent);
   }
 }

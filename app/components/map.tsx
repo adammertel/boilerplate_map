@@ -4,16 +4,22 @@ import * as L from "leaflet";
 import {
   Map,
   Marker,
-  Popup,
   TileLayer,
   LayersControl,
   LayerGroup
 } from "react-leaflet";
 
-export default class MapComponent extends React.Component {
+type Props = {
+  center: Array<Number>;
+  zoom: Number;
+  handleMapMoved: Function;
+};
+
+export default class MapComponent extends React.Component<Props> {
   mapRef;
   mapEl;
   props;
+
   constructor(props) {
     super(props);
     this.mapRef = React.createRef();
@@ -40,7 +46,6 @@ export default class MapComponent extends React.Component {
       iconAnchor: [12, 40]
     });
 
-    console.log("map renders", this.props.zoom);
     return (
       <div className="map">
         <Map

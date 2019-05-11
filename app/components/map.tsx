@@ -13,6 +13,7 @@ import {
 export default class MapComponent extends React.Component {
   mapRef;
   mapEl;
+  props;
   constructor(props) {
     super(props);
     this.mapRef = React.createRef();
@@ -26,6 +27,12 @@ export default class MapComponent extends React.Component {
     }, 0);
   }
 
+  handleMapMove(e) {
+    if (this.mapEl) {
+      this.props.handleMapMoved(e.center, e.zoom, this.mapEl.getBounds());
+    }
+  }
+
   render() {
     const icon = L.icon({
       iconUrl: "https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png",
@@ -33,9 +40,15 @@ export default class MapComponent extends React.Component {
       iconAnchor: [12, 40]
     });
 
+    console.log("map renders", this.props.zoom);
     return (
       <div className="map">
-        <Map center={[49, 18]} zoom={10} ref={this.mapRef}>
+        <Map
+          center={this.props.center}
+          zoom={this.props.zoom}
+          ref={this.mapRef}
+          onViewportChanged={this.handleMapMove.bind(this)}
+        >
           <LayersControl position="topright">
             <LayersControl.BaseLayer
               name="OpenStreetMap.BlackAndWhite"

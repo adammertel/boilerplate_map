@@ -11,7 +11,8 @@
     "baseUrl": "./app",
     "paths": {
       "*": ["./app/*"]
-    }
+    },
+    "target": "es5"
   },
   "include": ["app/*.*", "app/**/*.*", "test/*.ts", "test/**/*.ts"],
   "exclude": [".git", "node_modules"]

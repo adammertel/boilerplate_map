@@ -1,21 +1,31 @@
+:root {
+  --panel-w: 20em;
+}
+
 .app-wrapper {
   @apply absolute;
-  @apply pin-b;
-  @apply pin-t;
+  @apply .pin-y;
   @apply pin-r;
   @apply pin-l;
   .panel {
+    width: var(--panel-w);
     @apply absolute;
-  }
-  .muni-button {
-    @apply bg-muni;
+    @apply bg-white;
+    @apply z-10;
+    @apply px-4;
+    @apply py-4;
+    @apply pin-y;
+    @apply pin-l;
+    .muni-button {
+      @apply bg-muni;
+    }
   }
   .map {
+    @apply z-0;
     @apply absolute;
-    @apply pin-b;
-    @apply pin-t;
+    @apply pin-y;
     @apply pin-r;
-    @apply pin-l;
+    width: calc(100% - var(--panel-w));
     .leaflet-container {
       @apply w-full;
       @apply h-full;

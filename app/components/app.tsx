@@ -1,5 +1,6 @@
 import * as React from "react";
 import MapComponent from "./map";
+import PanelComponent from "./panel";
 import { observer } from "mobx-react";
 
 type Props = {
@@ -20,11 +21,7 @@ export default class App extends React.Component<Props> {
           center={store.center}
           zoom={store.zoom}
         />
-        <div className="panel">
-          <button className="muni-button text-white font-bold py-2 px-4 rounded">
-            test 4
-          </button>
-        </div>
+        <PanelComponent />
       </div>
     );
   }

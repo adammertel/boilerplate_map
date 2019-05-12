@@ -12,9 +12,12 @@ export default class PanelComponent extends React.Component<Props> {
   render() {
     return (
       <div className="panel" data-testid="panel-wrapper">
-        <button className="muni-button text-white font-bold py-2 px-4 rounded">
-          test 4
-        </button>
+        <h1 className="heading text-muni">Map</h1>
+
+        <button className="primary">primary button</button>
+        <button className="secondary">secondary button</button>
+        <button className="danger">danger button</button>
+        <button className="success">success button</button>
       </div>
     );
   }

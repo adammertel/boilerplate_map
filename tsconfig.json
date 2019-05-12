@@ -6,12 +6,11 @@
     "noImplicitAny": false,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "preserve",
-
     "baseUrl": "./app",
     "paths": {
       "*": ["./app/*"]
     },
+    "jsx": "react",
     "target": "es5"
   },
   "include": ["app/*.*", "app/**/*.*", "test/*.ts", "test/**/*.ts"],

@@ -27,10 +27,12 @@ export default class MapComponent extends React.Component<Props> {
   }
 
   componentDidMount() {
-    this.mapEl = this.mapRef.current.leafletElement;
-    setTimeout(() => {
-      this.mapEl.invalidateSize();
-    }, 0);
+    if (this.mapRef && this.mapRef.current) {
+      this.mapEl = this.mapRef.current.leafletElement;
+      setTimeout(() => {
+        this.mapEl.invalidateSize();
+      }, 0);
+    }
   }
 
   handleMapMove(e) {
@@ -47,7 +49,7 @@ export default class MapComponent extends React.Component<Props> {
     });
 
     return (
-      <div className="map">
+      <div className="map" data-testid="map-wrapper">
         <Map
           center={this.props.center}
           zoom={this.props.zoom}

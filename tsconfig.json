@@ -13,6 +13,6 @@
     "jsx": "react",
     "target": "es5"
   },
-  "include": ["app/*.*", "app/**/*.*", "test/*.ts", "test/**/*.ts"],
+  "include": ["app/*.*", "app/**/*.*", "test/*.*", "test/**/*.*"],
   "exclude": [".git", "node_modules"]
 }

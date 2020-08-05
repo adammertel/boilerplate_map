@@ -1,12 +1,14 @@
-import * as React from "react";
+import React, { useRef, useEffect } from "react";
 import * as L from "leaflet";
+import { observer } from "mobx-react";
+import { classnames } from "tailwindcss-classnames";
 
 import {
   Map,
   Marker,
   TileLayer,
   LayersControl,
-  LayerGroup
+  LayerGroup,
 } from "react-leaflet";
 
 type Props = {
@@ -15,46 +17,41 @@ type Props = {
   handleMapMoved: Function;
 };
 
-export default class MapComponent extends React.Component<Props> {
-  mapRef;
-  mapEl;
-  props;
+const icon = L.icon({
+  iconUrl: "https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png",
+  iconSize: [25, 40],
+  iconAnchor: [12, 40],
+});
 
-  constructor(props) {
-    super(props);
-    this.mapRef = React.createRef();
-    this.mapEl = false;
-  }
+export const MapComponent: React.FC<Props> = observer(
+  ({ center, zoom, handleMapMoved }) => {
+    const mapRef = useRef<any | null>(null);
+    let mapEl: L.Map | false = false;
 
-  componentDidMount() {
-    if (this.mapRef && this.mapRef.current) {
-      this.mapEl = this.mapRef.current.leafletElement;
-      setTimeout(() => {
-        this.mapEl.invalidateSize();
-      }, 0);
-    }
-  }
-
-  handleMapMove(e) {
-    if (this.mapEl) {
-      this.props.handleMapMoved(e.center, e.zoom, this.mapEl.getBounds());
-    }
-  }
-
-  render() {
-    const icon = L.icon({
-      iconUrl: "https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png",
-      iconSize: [25, 40],
-      iconAnchor: [12, 40]
+    useEffect(() => {
+      if (mapRef) {
+        if (mapRef.current && mapRef.current.leafletElement)
+          mapEl = mapRef.current?.leafletElement;
+        setTimeout(() => {
+          mapEl.invalidateSize();
+        }, 0);
+      }
     });
+
+    const handleMapMove = (e) => {
+      if (mapEl) {
+        handleMapMoved(e.center, e.zoom, mapEl.getBounds());
+      }
+    };
 
     return (
       <div className="map" data-testid="map-wrapper">
+        <div className="info">{center && center.join("-")}</div>
         <Map
-          center={this.props.center}
-          zoom={this.props.zoom}
-          ref={this.mapRef}
-          onViewportChanged={this.handleMapMove.bind(this)}
+          center={center}
+          zoom={zoom}
+          ref={mapRef}
+          onViewportChanged={handleMapMove}
         >
           <LayersControl position="topright">
             <LayersControl.BaseLayer
@@ -80,4 +77,4 @@ export default class MapComponent extends React.Component<Props> {
       </div>
     );
   }
-}
+);

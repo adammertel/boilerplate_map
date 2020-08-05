@@ -1,8 +1,9 @@
-import "./styles.css";
+import "./app.css";
+import "./../node_modules/leaflet/dist/leaflet.css";
 
-import * as React from "react";
+import React, { Fragment } from "react";
 import * as ReactDOM from "react-dom";
-import App from "./components/app";
+import { App } from "./components/app";
 import Store from "./store";
 
 window["store"] = new Store();

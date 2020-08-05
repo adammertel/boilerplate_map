@@ -10,6 +10,8 @@ button {
   @apply px-3;
   @apply rounded;
   @apply m-2;
+  @apply border-white;
+  @apply shadow-none;
 }
 
 button.primary {
@@ -35,10 +37,11 @@ button.success {
     @apply absolute;
     @apply bg-white;
     @apply z-10;
-    @apply px-4;
-    @apply py-4;
     @apply inset-y-0;
     @apply left-0;
+    .content {
+      @apply p-4;
+    }
     .heading {
       @apply mb-4;
     }
@@ -52,6 +55,13 @@ button.success {
     .leaflet-container {
       @apply w-full;
       @apply h-full;
+      @apply z-10;
+    }
+    .info {
+      @apply absolute;
+      @apply z-20;
+      @apply p-4;
+      @apply bottom-0;
     }
   }
 }

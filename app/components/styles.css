@@ -27,9 +27,9 @@ button.success {
 
 .app-wrapper {
   @apply absolute;
-  @apply .pin-y;
-  @apply pin-r;
-  @apply pin-l;
+  @apply .inset-y-0;
+  @apply right-0;
+  @apply left-0;
   .panel {
     width: var(--panel-w);
     @apply absolute;
@@ -37,8 +37,8 @@ button.success {
     @apply z-10;
     @apply px-4;
     @apply py-4;
-    @apply pin-y;
-    @apply pin-l;
+    @apply inset-y-0;
+    @apply left-0;
     .heading {
       @apply mb-4;
     }
@@ -46,8 +46,8 @@ button.success {
   .map {
     @apply z-0;
     @apply absolute;
-    @apply pin-y;
-    @apply pin-r;
+    @apply inset-y-0;
+    @apply right-0;
     width: calc(100% - var(--panel-w));
     .leaflet-container {
       @apply w-full;
